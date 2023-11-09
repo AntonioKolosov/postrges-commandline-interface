@@ -1,0 +1,26 @@
+DROP TABLE IF EXISTS students, teachers, disciplines, gradebook;
+
+CREATE TABLE students (
+	students_id SERIAL PRIMARY KEY,
+	student_name VARCHAR(100) NOT NULL,
+	course VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE teachers (
+	teachers_id SERIAL PRIMARY KEY,
+	teacher_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE disciplines (
+	disciplines_id SERIAL PRIMARY KEY,
+	discipline_name VARCHAR(100) NOT NULL,
+	teacher_id INT REFERENCES teachers(teachers_id)
+);
+
+CREATE TABLE gradebook (
+	gradebook_id SERIAL PRIMARY KEY,
+	grade_date DATE,
+	discipline_id INT REFERENCES disciplines(disciplines_id),
+	student_id INT REFERENCES students(students_id),
+	grade INT
+);

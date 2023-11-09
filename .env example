@@ -1,0 +1,5 @@
+HOST="<your server>"
+PORT=5432
+USER="<username>"
+PASS="<password>"
+DBNAME="<database name>"
